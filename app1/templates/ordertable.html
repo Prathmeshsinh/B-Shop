@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<body style="background-color: black;">
+
+
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="color: white;">
+      My Order List 
+    </h3>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <span class="table-add float-right mb-3 mr-2"
+          ><a href="#!" class="text-success"
+            ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+        ></span>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <thead>
+            <tr style="color: white;">
+              <th class="text-center">Product ID</th>
+              <th class="text-center">Order Price</th>
+              <th class="text-center">Order Date</th>
+              <th class="text-center">Order TransactionId</th>
+              <th class="text-center">View</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in myorder %}
+            <tr style="background-color: black; color: white;">
+              <td>{{i.id}}</td>
+              <td >{{i.totalprice}}</td>
+              <td>{{i.datetime}}</td>
+              <td >{{i.transactionid}}</td>
+              <td><a href="{% url 'orderdetails2' i.id %}">view</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div> 
+
+
+
+</body>
+</html>
+{% endblock %}

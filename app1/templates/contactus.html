@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;
+}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 50%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: brown;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: rgb(150, 32, 32);
+}
+
+.container {
+  border-radius: 5px;
+  background-color: black;
+  padding: 20px;
+}
+</style>
+</head>
+<body style="background-color: black;">
+
+  
+<h3 style="color: white; text-align: center;"><u>Contact Us</u></h3>
+
+
+<div class="container">
+  <form>
+    <label for="fname" style="color: white;">Name </label> <br>
+    <input style="color: black;" type="text" id="fname" name="namw" placeholder="Your name..">
+
+    <br>
+
+    <label for="email" style="color: white;">E-mail </label><br>
+    <input style="color: black;" type="text" id="email" name="e-mail" placeholder="Email">
+
+    <br>
+
+    <label for="subject" style="color: white;">Message</label><br>
+    <textarea style="color: black;" id="message" name="message" placeholder="Message" style="height:100px" rows="4" cols="50"></textarea>
+
+    <br>
+
+    <input type="submit" value="Submit" style="color: white;">
+  </form>
+</div>
+
+</body>
+</html>
+
+
+  {% endblock  %} 

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+ {% block content %}
+
+ {% if noitem > 0 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<body style="background-color: black;">
+<div class="card">
+  <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="color: white;">Shopping Cart <span>({{noitem}} item in your cart)</span></h3>
+  <table class="table table-bordered table-responsive-md table-striped text-center">
+    <thead>
+      <tr style="color: white;">
+        <th class="text-center">Product Image</th>
+        <th class="text-center">Product Name</th>
+        <th class="text-center">Product Quantity</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Total</th>
+        <th class="text-center">Remove</th>
+      </tr>
+    </thead>   
+  {% for i in prolist %}
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+          <tbody>
+            <tr style="background-color: black; color: white;">
+              <td><img src="{{i.img.url}}" height="100px"></td>
+              <td >{{i.name}}</td>
+              <td >{{i.quantity}}</td>
+              <td >{{i.price}}</td>
+              <td >{{i.totalprice}}.00</td>
+              <td><a class="lead fw-normal mb-0" href="{% url 'removeitem1' i.id  %}">Remove</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          <thead>
+            <tr style="color: white;">
+              <th colspan="5" class="text-center"><span class="small text-muted me-2">Order total:</span> <span
+                class="lead fw-normal">₹ {{final}}.00</span></th>
+              <th class="text-center"><a class="lead fw-normal mb-0" href="{% url 'removeallitem1' %}">Remove all</a></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+      <div style="text-align: right;"  class="d-flex justify-content-end">
+        <a class="btn btn-light btn-lg me-2" href="/"> >>> <u>Continue shopping</u></a>
+        <a  class="btn btn-primary btn-lg" href="{% url 'shipping1' %}">Check out<a>
+      </div>
+    </div>
+  </div> 
+ {% else %}
+       <a class="btn btn-light btn-lg me-2" href="/"> >>> <u>Continue shopping</u></a>
+  {% endif %}
+   {% if m %}<script>alert("{{m}}")</script>{% endif %}
+ {% endblock %}
+</body>
+</html>

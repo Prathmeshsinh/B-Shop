@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<body style="background-color: black;">
+
+
+<div class="card">
+    <h3 class="card-header text-center font-weight-bold text-uppercase py-4" style="color: white;">
+      My Order List 
+    </h3>
+    <div class="card-body">
+      <div id="table" class="table-editable">
+        <span class="table-add float-right mb-3 mr-2"
+          ><a href="#!" class="text-success"
+            ><i class="fas fa-plus fa-2x" aria-hidden="true"></i></a
+        ></span>
+        <table class="table table-bordered table-responsive-md table-striped text-center">
+          <thead>
+            <tr style="color: white;">
+              <th class="text-center">Product Image</th>
+              <th class="text-center">Product Name</th>
+              <th class="text-center">Product Quantity</th>
+              <th class="text-center">Order Price</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in prolist %}
+            <tr style="background-color: black; color: white;">
+              <td><img src="{{i.img.url}}" height="100px"></td>
+              <td >{{i.name}}</td>
+              <td >{{i.quantity}}</td>
+              <td >{{i.totalprice}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <div style="text-align: right;">
+          <a  class="btn btn-primary btn-lg" href="{% url 'myorder' %}"> Back </a>
+        </div>
+      </div>
+    </div>
+  </div> 
+
+
+
+</body>
+</html>
+{% endblock %}
